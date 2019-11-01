@@ -8,11 +8,13 @@ namespace MiroBozik.StringParser.Test
         [TestMethod]
         public void Template_IsMatch()
         {
-            var template = new Template("test-{test_name}");
-            template.Compile();
+            // var template = new Template("test-{test_name}");
+            // template.Compile();
 
-            var match = template.IsMatch("test-one");
+            // var match = template.IsMatch("test-one");
 
+            var match = "test-two".IsMatch("test-{test_name}");
+            
             Assert.IsTrue(match);
         }
 
