@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiroBozik.StringParser", "MiroBozik.StringParser\MiroBozik.StringParser.csproj", "{91205375-3EDC-4E3C-B761-7E37D4ACB33F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringParser", "src\StringParser.csproj", "{91205375-3EDC-4E3C-B761-7E37D4ACB33F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiroBozik.StringParser.Test", "MiroBozik.StringParser.Test\MiroBozik.StringParser.Test.csproj", "{D6EAFF5C-EEDA-4FA3-9E35-7BCE660D9023}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringParser.Test", "test\StringParser.Test.csproj", "{D6EAFF5C-EEDA-4FA3-9E35-7BCE660D9023}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

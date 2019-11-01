@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace MiroBozik.StringParser
+namespace StringParser
 {
     public class Template
     {

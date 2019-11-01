@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MiroBozik.StringParser\MiroBozik.StringParser.csproj" />
+    <ProjectReference Include="..\src\StringParser.csproj" />
   </ItemGroup>
 
 </Project>
