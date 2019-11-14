@@ -1,3 +1,4 @@
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace StringParser.Test
@@ -32,6 +33,48 @@ namespace StringParser.Test
             Assert.IsTrue(data.Count == 1);
             Assert.IsTrue(data.ContainsKey("test_name"));
             Assert.IsTrue(data["test_name"] == "two");
+        }
+
+        [TestMethod]
+        public void Template_IsMatch_Exception()
+        {
+            // this code will throw an exception
+            // because we did not call .Compile()
+            // before calling .IsMatch
+            var template = new Template("test-{name}");
+            var isThrew = false;
+
+            try
+            {
+                var match = template.IsMatch("test-match");
+            }
+            catch (Exception)
+            {
+                isThrew = true;
+            }
+
+            Assert.IsTrue(isThrew);
+        }
+
+        [TestMethod]
+        public void Template_Parse_Exception()
+        {
+            // this code will throw an exception
+            // because we did not call .Compile()
+            // before calling .IsMatch
+            var template = new Template("test-{name}");
+            var isThrew = false;
+
+            try
+            {
+                var data = template.Parse("test-parse");
+            }
+            catch (Exception)
+            {
+                isThrew = true;
+            }
+
+            Assert.IsTrue(isThrew);
         }
     }
 }

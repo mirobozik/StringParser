@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -11,7 +12,7 @@ namespace StringParser
 
         public Template(string templateStr)
         {
-            _templateStr = templateStr;
+            _templateStr = templateStr ?? throw new ArgumentNullException(nameof(templateStr));
         }
 
         public void Compile()
@@ -23,11 +24,25 @@ namespace StringParser
 
         public bool IsMatch(string input)
         {
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
+            EnsureIsCompiled();
+
             return Regex.IsMatch(input, _pattern);
         }
 
         public IDictionary<string, string> Parse(string input)
         {
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
+            EnsureIsCompiled();
+
             var data = new Dictionary<string, string>();
             var regex = new Regex(_pattern);
             var match = regex.Match(input);
@@ -37,6 +52,14 @@ namespace StringParser
                 data.Add(name, match.Groups[name].Value);
             }
             return data;
+        }
+
+        private void EnsureIsCompiled()
+        {
+            if (string.IsNullOrEmpty(_pattern))
+            {
+                throw new TemplateIsNotCompiledException();
+            }
         }
     }
 }
